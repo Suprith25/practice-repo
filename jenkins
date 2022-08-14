@@ -32,10 +32,8 @@ pipeline {
                          stage('Testing2') {
                              agent { label 'master' }
                              steps {
-                                sh '''
-                                    echo "this is  a Testing 2 stare"
-                                    sleep 5
-                                   '''
+                                   echo "this is  a Testing 2 stare"
+                                   sh  sleep 5
                                    } 
                                }
                           }
