@@ -26,7 +26,7 @@ pipeline {
                          stage('Testing1') {
                             agent { label 'slave2' }
                             steps{
-                               sh 'echo "This is Testinng1 stage"
+                               sh 'echo "This is Testinng1 stage"'
                                sh 'sleep 5'
                             }
                          }
