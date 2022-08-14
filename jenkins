@@ -13,7 +13,6 @@ pipeline {
                        '''
                        }
                              }
-                  }
                   stage('Deploy') {
                   agent { label 'slave1' }  
                   steps {
@@ -41,6 +40,6 @@ pipeline {
                                }
                           }
                       }
-                 }
+                 
 
 
