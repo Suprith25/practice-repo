@@ -1,43 +1,45 @@
 pipeline {
-          agent none
-          stages {
-              stage('build') {
+     agent none
+     stages {
+        stage('BUILD') {
               agent any
-                 steps {
-                       sh '''
-                       #!/bin/bash
-                       pwd
-                       ls
-                       echo "This is Build stage"
-                       sleep 5
-                       '''
-                       }
-                             }
-                  stage('Deploy') {
-                  agent { label 'slave1' }  
-                  steps {
-                     echo "This is deploy stage"
-                     sh 'sleep 5'
-                   }
-                }
-                Stage('Testing 1') {
-                    parallel {
-                         stage('Testing1') {
-                            agent { label 'slave2' }
-                            steps{
-                               sh 'echo "This is Testinng1 stage"'
-                               sh 'sleep 5'
-                            }
-                         }
-                         stage('Testing2') {
-                             agent { label 'master' }
-                             steps {
-                                   echo "this is  a Testing 2 stare"
-                                   sh  sleep 5
-                                   } 
-                               }
-                          }
-                      }
-                 }
+              steps {
+                 sh '''
+                     #!/bin/bash
+                     pwd
+                     ls
+                     echo "This is Build stage"
+                     sleep 5
+                  '''
+               }
+         }
+         
+         stage('Deploy') {
+            agent { label 'slave1' }  
+            steps {
+                echo "This is deploy stage"
+                sh 'sleep 5'
+            }
+         }
+         Stage('Testing 1') {
+            agent { label 'slave2' }
+            steps{
+               sh 'echo "This is Testinng1 stage"'
+               sh 'sleep 5'
+            }
+         }
+
+         stage('Testing2') {
+            agent { label 'master' }
+            steps {
+                sh '''
+                    echo "this is  a Testing 2 stage"
+                    sleep 5
+                '''
+            } 
+         }
+      }
+  }
+                
 
 
