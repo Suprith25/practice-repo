@@ -3,16 +3,14 @@ pipeline {
     stages {
             stage('ALL') {
                 parallel {
-                    
-                    stage('BUILD') {
+                  stage('BUILD') {
                         when {
                          branch 'master'
                         }
                         steps {
                            echo "this is build stage"
                          }
-                     
-                    }
+                     }
                     stage('DEPLOY') {
                         when {
                          branch 'master'
