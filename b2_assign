@@ -1,4 +1,4 @@
-pipeline {----
+pipeline {
     agent any
     parameters {
     choice(choices: ['Master', 'Main'], description: 'Select the branch you want to run', name: 'branch')
