@@ -1,4 +1,4 @@
-pipeline {
+pipeline {000
      agent none
      stages {
         stage('BUILD') {
